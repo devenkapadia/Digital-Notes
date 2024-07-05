@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Login = (props) => {
-    const host = 'http://localhost:5000'
+    const host = process.env.REACT_APP_API_LINK
     const navigate = useNavigate()
     const [cred, setCred] = useState({ email: "", password: "" })
     const handleSubmit = async (e) => {
@@ -20,6 +20,7 @@ const Login = (props) => {
             //redirect 
             props.showAlert("Logged in successfully",'success')
             localStorage.setItem('token', json.authToken)
+            localStorage.setItem('userName', json.userName)
             navigate('/')
         }
         else {

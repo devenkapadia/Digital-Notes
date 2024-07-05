@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const Signup = (props) => {
-    const host = 'http://localhost:5000'
+    const host = process.env.REACT_APP_API_LINK
     const navigate = useNavigate()
     const [cred, setCred] = useState({ name: "", email: "", password: "", cpassword: "" })
 
@@ -23,6 +23,7 @@ const Signup = (props) => {
             //redirect 
             props.showAlert("Account created!!",'success')
             localStorage.setItem('token', json.authToken)
+            localStorage.setItem('userName', json.userName)
             navigate('/')
         }
         else {

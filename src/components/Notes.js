@@ -11,6 +11,10 @@ export default function Notes(props) {
     const { notes, getNotes, editNote } = context
     const ref = useRef(null)
     const refClose = useRef(null)
+
+    
+    const userName = localStorage.getItem('userName')
+    console.log(userName);
     useEffect(() => {
         if (localStorage.getItem('token')) {
             getNotes()  
@@ -78,6 +82,7 @@ export default function Notes(props) {
             </div>
 
             <div className="row my-3" style={{ "textAlign": "left" }}>
+                <h1>Welcome, {userName}</h1>
                 <h1>Your Notes</h1>
                 <div className="conatiner mx-2">
                     {notes.lenght === 0 && 'No notes to display here, Add notes by clicking below'}

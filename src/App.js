@@ -26,6 +26,7 @@ function App() {
       setAlert(null)
     }, 1500);
   }
+  const token = localStorage.getItem('token')
   return (
     <>
       <div className="App">
@@ -35,7 +36,7 @@ function App() {
             <Alert alert={alert} />
             <div className="container my-8">
               <Routes>
-                <Route exact path="/" element={<Home showAlert={showAlert} />}>
+                <Route exact path="/" element={token ? <Home showAlert={showAlert} /> : <Login showAlert={showAlert} />}>
                 </Route>
                 <Route exact path="/about" element={<About />}>
                 </Route>
