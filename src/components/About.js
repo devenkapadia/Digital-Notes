@@ -5,7 +5,7 @@ import React from 'react'
 export default function About(props) {
     return (
         <>
-            <h1>This is about</h1>
+            <h1>This project is created by Deven Kapadia</h1>
         </>
     )
 }
