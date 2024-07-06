@@ -9,6 +9,7 @@ export default function Navbar(props) {
     const navigate = useNavigate()
     const handleLogout = () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('userName');
         navigate('/login')
     }
     let location = useLocation()
