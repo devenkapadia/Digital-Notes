@@ -12,18 +12,16 @@ export default function Notes(props) {
     const ref = useRef(null)
     const refClose = useRef(null)
 
-    
-    const userName = localStorage.getItem('userName')
-    console.log(userName);
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            getNotes()  
+            getNotes()
         }
         else {
             navigate('/login')
         }
     })
     const [note, setNote] = useState({ etitle: "", edesc: "", etag: "" })
+    const userName = localStorage.getItem('userName')
 
     const onChange = (e) => {
         setNote({ ...note, [e.target.name]: e.target.value })
@@ -39,7 +37,7 @@ export default function Notes(props) {
         setNote({
             id: currNote._id,
             etitle: currNote.title,
-            edesc: currNote.desc,
+            edesc: currNote.description,
             etag: currNote.tag
         })
     }
@@ -93,7 +91,6 @@ export default function Notes(props) {
                 <Link className='my-1' to="/addNote">
                     <button className="btn btn-success">Add Notes</button>
                 </Link>
-                {/* <EditNote /> */}
             </div>
 
         </>

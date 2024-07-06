@@ -10,7 +10,7 @@ const NoteItem = (props) => {
             <div className="card">
                 <div className="card-body">
                     <h5 className="card-title">{note.title}</h5>
-                    <p className="card-text">{note.desc}
+                    <p className="card-text">{note.description}
                         <br></br><span className="badge text-bg-secondary">{note.tag}</span></p>
                     <i className="fa-solid fa-pen-to-square mx-3" onClick={() => {
                         updateNote(note);

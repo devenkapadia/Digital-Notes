@@ -17,10 +17,10 @@ const NoteStete = (props) => {
             }
         })
         const json = await response.json()
-        // console.log(json);
+        console.log("res",json);
         setNotes(json)
     }
-    const addNote = async ({ title, desc, tag }) => {
+    const addNote = async ({ title, description, tag }) => {
         // API call
         const response = await fetch(`${host}/api/notes/addnote`, {
             method: 'POST',
@@ -28,10 +28,9 @@ const NoteStete = (props) => {
                 'Content-Type': "application/json",
                 "auth-token": localStorage.getItem('token')
             },
-            body: JSON.stringify({ title, desc, tag })
+            body: JSON.stringify({ title, description, tag })
         })
         const json = await response.json()
-        // console.log("Adding a note");
         notes = notes.concat(json)
         setNotes(notes)
     }
@@ -45,7 +44,7 @@ const NoteStete = (props) => {
             }
         })
     }
-    const editNote = async (id, title, desc, tag) => {
+    const editNote = async (id, title, description, tag) => {
         // API call
         // console.log("editing a note");
 
@@ -56,7 +55,7 @@ const NoteStete = (props) => {
                 'Content-Type': "application/json",
                 "auth-token": localStorage.getItem('token')
             },
-            body: JSON.stringify({ title, desc, tag })
+            body: JSON.stringify({ title, description, tag })
         })
         // const json = await response.json()
         const newNotes = JSON.parse(JSON.stringify(notes))
@@ -65,7 +64,7 @@ const NoteStete = (props) => {
             // let elem = newNotes[i];
             if (newNotes._id === id) {
                 newNotes[i].title = title;
-                newNotes[i].desc = desc;
+                newNotes[i].desc = description;
                 newNotes[i].tag = tag;
                 break
             }
