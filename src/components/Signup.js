@@ -22,9 +22,7 @@ const Signup = (props) => {
         if (json.success) {
             //redirect 
             props.showAlert("Account created!!",'success')
-            localStorage.setItem('token', json.authToken)
-            localStorage.setItem('userName', json.userName)
-            navigate('/')
+            navigate('/login')
         }
         else {
             props.showAlert("User already exists",'danger')
